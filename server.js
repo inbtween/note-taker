@@ -1,0 +1,13 @@
+const expree = require("express");
+const path = requere("path");
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// ROUTES
+app.get("/", (req, res) => {
+  res.send("The server is live");
+});
+app.listen(PORT, () => {
+  console.log(`Server running on ${PORT}`);
+});
