@@ -11,6 +11,7 @@ app.get("/", (req, res) => {
   // res.sendFile(path.join(__dirname, "index.html"));
   // res.send("The server is live");
   res.sendFile(path.join(__dirname, "/public/index.html"));
+  res.sendFile(path.join(__dirname, "/public/notes.html"));
 });
 app.listen(PORT, () => {
   console.log(`Server running on ${PORT}`);
