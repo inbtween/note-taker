@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static("public"));
 // ROUTES
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "/index.html"));
+  res.sendFile(path.join(__dirname, "index.html"));
   // res.send("The server is live");
 });
 app.listen(PORT, () => {
