@@ -1,6 +1,6 @@
 // LOAD DATA
 // We are linking our routes to a series of "data" sources.
-// These data sources hold arrays of information on table-data, waitinglist, etc.
+// These data sources hold arrays of information on note taker, the title and note area etc.
 
 const titleData = require("../data/note-title");
 const noteData = require("../data/note-text");
@@ -11,7 +11,7 @@ module.exports = (app) => {
   // API GET Requests
   // Below code handles when users "visit" a page.
   // In each of the below cases when a user visits a link
-  // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
+  // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the note)
   // ---------------------------------------------------------------------------
 
   app.get("/api/title", (req, res) => res.json(titleData));
@@ -26,17 +26,18 @@ module.exports = (app) => {
   // Then the server saves the data to the titleData array)
   // ---------------------------------------------------------------------------
 
-  app.post("/api/title", (req, res) => {
+  app.post("/api/note", (req, res) => {
     // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
     // It will do this by sending out the value "true" have a table
     // req.body is available since we're using the body parsing middleware
-    if (titleData.length < 5) {
-      titleData.push(req.body);
-      res.json(true);
-    } else {
+    if (noteData.length < 5) {
       noteData.push(req.body);
-      res.json(false);
+      res.json(true);
     }
+    // } else {
+    //   noteData.push(req.body);
+    //   res.json(false);
+    // }
   });
 
   // I added this below code so you could clear out the table while working with the functionality.
