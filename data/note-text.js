@@ -5,7 +5,7 @@
 
 const textArray = [
   {
-    noteText: "initial note",
+    noteText: "note body here",
   },
 ];
 
