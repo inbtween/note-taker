@@ -5,6 +5,36 @@ const app = express();
 // a dynamic port
 const PORT = process.env.PORT || 3000;
 
+const fs = require("fs");
+fs.readFile("db.json", function (err, data) {
+  // Check for errors
+  if (err) throw err;
+
+  // Converting to JSON
+  const db = JSON.parse(data);
+
+  console.log(db); // Print note
+});
+// / STEP 1: Reading JSON file
+const db = require("./db");
+
+// Defining new user
+let db = {
+  title: "New Test Title",
+  text: "New Test text",
+};
+
+// STEP 2: Adding new data to db object
+db.push(db);
+
+// STEP 3: Writing to a file
+fs.writeFile("db.json", JSON.stringify(db), (err) => {
+  // Checking for errors
+  if (err) throw err;
+
+  console.log("Done writing note"); // Success
+});
+
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
