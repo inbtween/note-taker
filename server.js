@@ -16,16 +16,17 @@ fs.readFile("db.json", function (err, data) {
   console.log(db); // Print note
 });
 // / STEP 1: Reading JSON file
-const db = require("./db");
+const db = require("../db/db.json");
+console.log(db);
 
 // Defining new user
-let db = {
+let dataBase = {
   title: "New Test Title",
   text: "New Test text",
 };
 
 // STEP 2: Adding new data to db object
-db.push(db);
+db.push(dataBase);
 
 // STEP 3: Writing to a file
 fs.writeFile("db.json", JSON.stringify(db), (err) => {
